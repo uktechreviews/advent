@@ -10,7 +10,7 @@ import socket
 import struct
 from PIL import Image
 import string
-
+import pygame.gfxdraw
 
 os.environ["SDL_FBDEV"] = "/dev/fb1"
 os.environ["SDL_MOUSEDEV"] = "/dev/input/touchscreen"
@@ -36,11 +36,11 @@ def on_click():
 			button(date)
 
 def make_button(text, xpo, ypo, colour):
-        font=pygame.font.Font(None,24)
-        label=font.render(str(text), 1, (colour))
-        screen.blit(label,(xpo+45,ypo+20))
-        pygame.draw.rect(screen, cream, (xpo,ypo,100,60),1)
-
+	font=pygame.font.Font(None,24)
+	label=font.render(str(text), 1, (colour))
+	#pygame.draw.rect(screen, cream, (xpo,ypo,100,60),0)
+	pygame.gfxdraw.box(screen, pygame.Rect(xpo,ypo,100,60),(254,255,250,127))
+	screen.blit(label,(xpo+45,ypo+20))
 
 
 #define action on pressing buttons
@@ -61,7 +61,7 @@ def button(number):
 
 def refresh():
 
-	background ='/home/pi/Documents/advent/photos/1.tiff'
+	background ='/home/pi/Documents/advent/photos/bg.tiff'
 	bg = pygame.image.load(background)
 	screen.blit(bg,(0,0))
 	pygame.display.update()
@@ -82,6 +82,7 @@ size = width, height = 800, 480
 #define colours
 blue = 26, 0, 255
 cream = 254, 255, 250
+cream2 = 254,255,250,0
 black = 0, 0, 0
 white = 255, 255, 255
 red = 255,0,0
