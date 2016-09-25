@@ -4,10 +4,6 @@ from pygame.locals import *
 import time
 import subprocess
 import os
-<<<<<<< HEAD
-=======
-from energenie import switch_on, switch_off
->>>>>>> 42aea1da50644bbb020b88f1633701f8a4c6d338
 import io
 import socket
 import struct
