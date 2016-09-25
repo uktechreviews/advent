@@ -50,6 +50,31 @@ def button(number):
 	font=pygame.font.Font(None,24)
 	label=font.render(str(number), 1, (cream))
 	screen.blit(label,(400,400))
+	image = '/home/pi/Documents/advent/photos/' + str(number) + '.tiff'
+	new_image = pygame.image.load(image)
+	screen.blit(new_image,(0,0))
+	pygame.display.update()
+	time.sleep(5)
+	refresh()
+
+#Add buttons and labels
+
+def refresh():
+
+	background ='/home/pi/Documents/advent/photos/1.tiff'
+	bg = pygame.image.load(background)
+	screen.blit(bg,(0,0))
+	pygame.display.update()
+	date_list=[3,11,23,1,16,13,6,10,21,17,22,12,24,15,5,4,18,9,8,19,14,7,20,2]
+	xcord_list=[30,155,280,405,530,655,30,155,280,405,530,655,30,155,280,405,530,655,30,155,280,405,530,655]
+	ycord_list=[20,20,20,20,20,20,105,105,105,105,105,105,190,190,190,190,190,190,275,275,275,275,275,275]
+
+	for i in range(len(xcord_list)):
+		date=date_list[i]
+		x=xcord_list[i]
+		y=ycord_list[i]
+		make_button(date,x,y,red)
+
 
 #set size of the screen
 size = width, height = 800, 480
@@ -69,19 +94,9 @@ pygame.display.set_mode((800,480),pygame.FULLSCREEN)
 #set up the fixed items on the menu
 screen.fill(blue) #change the colours if needed
 pygame.draw.rect(screen, white, (0,5,799,475),1)
+pygame.display.update()
 
-#Add buttons and labels
-
-date_list=[3,11,23,1,16,13,6,10,21,17,22,12,24,15,5,4,18,9,8,19,14,7,20,2]
-xcord_list=[30,155,280,405,530,655,30,155,280,405,530,655,30,155,280,405,530,655,30,155,280,405,530,655]
-ycord_list=[20,20,20,20,20,20,105,105,105,105,105,105,190,190,190,190,190,190,275,275,275,275,275,275]
-
-for i in range(len(xcord_list)):
-	date=date_list[i]
-	x=xcord_list[i]
-	y=ycord_list[i]
-	make_button(date,x,y,red)
-
+refresh()
 
 #While loop to manage touch screen inputs
 while 1:
