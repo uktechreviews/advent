@@ -34,16 +34,19 @@ def on_click():
 		if x <= click_pos[0] <= x+100  and y <= click_pos[1] <=y+60:
 			button(date)
 
-def make_button(text, xpo, ypo, colour):
+def make_button(text, xpo, ypo, colour,alpha):
 	font=pygame.font.Font(None,24)
 	label=font.render(str(text), 1, (colour))
-	#pygame.draw.rect(screen, cream, (xpo,ypo,100,60),0)
-	pygame.gfxdraw.box(screen, pygame.Rect(xpo,ypo,100,60),(254,255,250,127))
+	pygame.gfxdraw.box(screen, pygame.Rect(xpo,ypo,100,60),(254,255,250,alpha))
 	screen.blit(label,(xpo+45,ypo+20))
 
 
 #define action on pressing buttons
 def button(number):
+	calendar = open('config.advent','a')
+	text = 'Day:' + str(number) + " open" + "\n"
+	calendar.write(text)
+	calendar.close()
 	pygame.draw.rect(screen, black, (390,390,100,50),0)
 	pygame.display.update()
 	font=pygame.font.Font(None,24)
@@ -72,8 +75,17 @@ def refresh():
 		date=date_list[i]
 		x=xcord_list[i]
 		y=ycord_list[i]
-		make_button(date,x,y,red)
-
+		calendar = open('config.advent','r')
+		for days in range (1,25):
+			content = calendar.readline()
+			text = 'Day:' + str(date) + " open" + "\n"
+			if (text) in content:
+				alpha = 0
+				break
+			else:
+				alpha = 127
+		make_button(date,x,y,red,alpha)
+	calendar.close()
 
 #set size of the screen
 size = width, height = 800, 480
@@ -111,7 +123,8 @@ while 1:
                 if event.type == KEYDOWN:
                         if event.key == K_ESCAPE:
                                 sys.exit()
-        pygame.display.update()
+        time.sleep(0.1)
+	pygame.display.update()
 refresh_menu_screen()  #refresh the menu interface
 
 
