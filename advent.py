@@ -102,7 +102,7 @@ screen = pygame.display.set_mode(size)
 #set up the fixed items on the menu
 screen.fill(blue) #change the colours if needed
 pygame.draw.rect(screen, white, (0,5,780,365),1)
-splash = '/home/pi/Documents/advent/photos/welcome.tiff'
+splash = '/home/pi/Documents/advent/photos/welcome.png'
 splash_image = pygame.image.load(splash)
 screen.blit(splash_image,(0,0))
 pygame.display.update()
@@ -112,7 +112,7 @@ content = calendar.readline()
 if "Day" in content:
         print ("already opened")
 else:
-        notes = '/home/pi/Documents/advent/photos/notes.tiff'
+        notes = '/home/pi/Documents/advent/photos/notes.png'
         notes_image = pygame.image.load(notes)
         screen.blit(notes_image,(0,0))
         pygame.display.update()
