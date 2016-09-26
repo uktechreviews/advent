@@ -50,6 +50,7 @@ def button(number):
 	pygame.display.update()
 	image = '/home/pi/Documents/advent/photos/' + str(number) + '.png'
 	new_image = pygame.image.load(image)
+	#new_image = pygame.transform.scale(new_image,(780,370))
 	screen.blit(new_image,(0,0))
 	pygame.display.update()
 	time.sleep(5)
@@ -81,7 +82,7 @@ def refresh():
 			else:
 				alpha = 127
 		make_button(date,x,y,red,alpha)
-	calendar.close()
+		calendar.close()
 
 #set size of the screen
 size = width, height = 780, 370
@@ -132,7 +133,7 @@ while 1:
                 if event.type == KEYDOWN:
                         if event.key == K_ESCAPE:
                                 sys.exit()
-        time.sleep(0.5)
+        time.sleep(0.1)
         pygame.display.update()
 
 refresh_menu_screen()  #refresh the menu interface
