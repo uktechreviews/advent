@@ -106,8 +106,11 @@ pygame.display.set_mode((800,480),pygame.FULLSCREEN)
 #set up the fixed items on the menu
 screen.fill(blue) #change the colours if needed
 pygame.draw.rect(screen, white, (0,5,799,475),1)
+splash = '/home/pi/Documents/advent/photos/welcome.tiff'
+splash_image = pygame.image.load(splash)
+screen.blit(splash_image,(0,0))
 pygame.display.update()
-
+time.sleep(5)
 refresh()
 
 #While loop to manage touch screen inputs
@@ -124,7 +127,8 @@ while 1:
                         if event.key == K_ESCAPE:
                                 sys.exit()
         time.sleep(0.1)
-	pygame.display.update()
+        pygame.display.update()
+
 refresh_menu_screen()  #refresh the menu interface
 
 
