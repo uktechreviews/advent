@@ -111,6 +111,17 @@ splash_image = pygame.image.load(splash)
 screen.blit(splash_image,(0,0))
 pygame.display.update()
 time.sleep(5)
+calendar = open('config.advent','r')
+content = calendar.readline() 
+if "Day" in content:
+        print ("already opened")
+else:
+        notes = '/home/pi/Documents/advent/photos/notes.tiff'
+        notes_image = pygame.image.load(notes)
+        screen.blit(notes_image,(0,0))
+        pygame.display.update()
+        time.sleep(5)
+calendar.close()
 refresh()
 
 #While loop to manage touch screen inputs
