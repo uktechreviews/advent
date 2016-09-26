@@ -48,7 +48,7 @@ def button(number):
 	calendar.write(text)
 	calendar.close()
 	pygame.display.update()
-	image = '/home/pi/Documents/advent/photos/' + str(number) + '.tiff'
+	image = '/home/pi/Documents/advent/photos/' + str(number) + '.png'
 	new_image = pygame.image.load(image)
 	screen.blit(new_image,(0,0))
 	pygame.display.update()
