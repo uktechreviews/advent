@@ -47,11 +47,7 @@ def button(number):
 	text = 'Day:' + str(number) + " open" + "\n"
 	calendar.write(text)
 	calendar.close()
-	pygame.draw.rect(screen, black, (390,390,100,50),0)
 	pygame.display.update()
-	font=pygame.font.Font(None,24)
-	label=font.render(str(number), 1, (cream))
-	screen.blit(label,(400,400))
 	image = '/home/pi/Documents/advent/photos/' + str(number) + '.tiff'
 	new_image = pygame.image.load(image)
 	screen.blit(new_image,(0,0))
@@ -88,7 +84,7 @@ def refresh():
 	calendar.close()
 
 #set size of the screen
-size = width, height = 800, 465
+size = width, height = 780, 370
 
 #define colours
 blue = 26, 0, 255
@@ -104,7 +100,7 @@ screen = pygame.display.set_mode(size)
 #pygame.display.set_mode((800,480),pygame.FULLSCREEN)
 #set up the fixed items on the menu
 screen.fill(blue) #change the colours if needed
-pygame.draw.rect(screen, white, (0,5,799,460),1)
+pygame.draw.rect(screen, white, (0,5,780,365),1)
 splash = '/home/pi/Documents/advent/photos/welcome.tiff'
 splash_image = pygame.image.load(splash)
 screen.blit(splash_image,(0,0))
@@ -136,7 +132,7 @@ while 1:
                 if event.type == KEYDOWN:
                         if event.key == K_ESCAPE:
                                 sys.exit()
-        time.sleep(0.1)
+        time.sleep(0.5)
         pygame.display.update()
 
 refresh_menu_screen()  #refresh the menu interface
