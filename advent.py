@@ -16,7 +16,7 @@ os.environ["SDL_MOUSEDEV"] = "/dev/input/touchscreen"
 os.environ["SDL_MOUSEDRV"] = "TSLIB"
 pygame.init()
 
-pygame.display.set_caption("DeskMate2000")
+pygame.display.set_caption("Countdown to Christmas")
 
 #define function that checks for mouse location
 def on_click():
@@ -88,7 +88,7 @@ def refresh():
 	calendar.close()
 
 #set size of the screen
-size = width, height = 800, 480
+size = width, height = 800, 465
 
 #define colours
 blue = 26, 0, 255
@@ -101,11 +101,10 @@ green = 0,255,0
 yellow = 255, 255, 224
 
 screen = pygame.display.set_mode(size)
-pygame.display.set_mode((800,480),pygame.FULLSCREEN)
-
+#pygame.display.set_mode((800,480),pygame.FULLSCREEN)
 #set up the fixed items on the menu
 screen.fill(blue) #change the colours if needed
-pygame.draw.rect(screen, white, (0,5,799,475),1)
+pygame.draw.rect(screen, white, (0,5,799,460),1)
 splash = '/home/pi/Documents/advent/photos/welcome.tiff'
 splash_image = pygame.image.load(splash)
 screen.blit(splash_image,(0,0))
