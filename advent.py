@@ -60,7 +60,7 @@ def button(number):
 
 def refresh():
 
-	background ='/home/pi/Documents/advent/photos/bg.tiff'
+	background ='/home/pi/Documents/advent/photos/bg.png'
 	bg = pygame.image.load(background)
 	screen.blit(bg,(0,0))
 	pygame.display.update()
