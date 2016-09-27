@@ -9,4 +9,4 @@ At the moment this uses the touch screen in full screen mode
 1. Add check date function to prevent a door being opened early
 1. Add a warning message when door is opened early
 
-![example](photos/bg.tiff)
+![example](photos/bg.png)
