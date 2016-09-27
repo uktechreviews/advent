@@ -1,6 +1,6 @@
 # Raspberry Pi powered Advent Calendar
 
-To use your own photos save them into the /photos folder as 1.tiff etc
+To use your own photos save them into the /photos folder as 1.png etc
 
 At the moment this uses the touch screen in full screen mode
 
