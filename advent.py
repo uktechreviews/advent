@@ -43,7 +43,7 @@ def make_button(text, xpo, ypo, colour,alpha):
 
 #define action on pressing buttons
 def button(number):
-	calendar = open('config.advent','a')
+	calendar = open('/home/pi/Documents/advent/config.advent','a')
 	text = 'Day:' + str(number) + " open" + "\n"
 	calendar.write(text)
 	calendar.close()
@@ -72,7 +72,7 @@ def refresh():
 		date=date_list[i]
 		x=xcord_list[i]
 		y=ycord_list[i]
-		calendar = open('config.advent','r')
+		calendar = open('/home/pi/Documents/advent/config.advent','r')
 		for days in range (1,25):
 			content = calendar.readline()
 			text = 'Day:' + str(date) + " open" + "\n"
@@ -107,7 +107,7 @@ splash_image = pygame.image.load(splash)
 screen.blit(splash_image,(0,0))
 pygame.display.update()
 time.sleep(5)
-calendar = open('config.advent','r')
+calendar = open('/home/pi/Documents/advent/config.advent','r')
 content = calendar.readline() 
 if "Day" in content:
         print ("already opened")
